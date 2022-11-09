@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: inherit;
+}
+
+html {
+    font-size: 71.2%;
+}
+
+::placeholder {
+    font-size: 1.8rem;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.8rem;
+    padding: 3rem;
+    font-family: 'Noto Sans', sans-serif;
+    background: linear-gradient(270deg, #83eeff, #66f9a6, #b568ff, #1bff54);
+    background-size: 800% 800%;
+    -webkit-animation: AnimationName 50s ease infinite;
+    -moz-animation: AnimationName 50s ease infinite;
+    -o-animation: AnimationName 50s ease infinite;
+    animation: AnimationName 50s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+::-webkit-scrollbar {
+    width: 10px;               
+  }
+  
+::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);        
+  }
+::-webkit-scrollbar-thumb {
+    background-color: rgb(187, 185, 185);  
+    border-radius: 20px; 
+  }
+
+.container {
+    background-color: #ffff;
+    border-radius: 5px;
+    width: 600px;
+    padding: 2rem;
+}
+
+.title {
+    position: relative;
+    text-align: center;
+    color: rgb(53, 53, 53);
+}
+
+.input-fields {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+.input-fields input {
+    width: 90%;
+    padding: 0.4rem;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 0.2rem solid rgb(146, 146, 146);
+    font-size: 2rem;
+}
+
+.buttonAdd {
+    font-size: 2rem;
+    width: 30px;
+    color: #ffff;
+    background-color: rgb(75, 122, 250);
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.todoListApp{
+    height: 290px;
+    overflow-y: auto;
+}
+
+.list_item {    
+    position: relative;
+    padding: 0.5rem;
+    list-style: none;
+    margin: 0.6rem 0;
+    overflow: hidden;
+    transition: 350ms;
+}
+
+.list_item:hover {
+    background-color: rgb(243, 243, 243);
+}
+
+.ri-delete-bin-6-line {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    padding: 0.7rem;
+    cursor: pointer;
+    transition: all ease-in-out 350ms;
+    background-color: rgb(255, 45, 45);
+    color: #ffff;
+    transform: translateX(40px);
+}
+
+.list_item:hover .ri-delete-bin-6-line {
+    transform: translateX(0);
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 1.5rem;
+    border-top: 0.2rem solid rgb(146, 146, 146);
+    padding-top: 1.5rem;
+}
+
+.buttonClear {
+    background-color: rgb(37, 94, 253);
+    font-size: 1.5rem;
+    color: #ffff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+/********************Class for js**********************/
+.active {
+    background-color: rgb(185, 199, 236);
+}
+
+/********************animation********************/
+#loading {
+    position: absolute;
+    top: 0;
+}
+
+.loadding-page {
+    width: 100%;
+    height: 100%;
+    background: #fdd245;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    z-index: 9999;
+  }
+  .cssload-box-loading {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .cssload-box-loading:before {
+    content: '';
+    width: 49px;
+    height: 5px;
+    background: #000000;
+    opacity: 0.1;
+    position: absolute;
+    top: 58px;
+    left: 0;
+    border-radius: 50%;
+    animation: shadow 0.58s linear infinite;
+    -o-animation: shadow 0.58s linear infinite;
+    -ms-animation: shadow 0.58s linear infinite;
+    -webkit-animation: shadow 0.58s linear infinite;
+    -moz-animation: shadow 0.58s linear infinite;
+  }
+  .cssload-box-loading:after {
+    content: '';
+    width: 49px;
+    height: 49px;
+    background: #c007ee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    animation: cssload-animate 0.58s linear infinite;
+    -o-animation: cssload-animate 0.58s linear infinite;
+    -ms-animation: cssload-animate 0.58s linear infinite;
+    -webkit-animation: cssload-animate 0.58s linear infinite;
+    -moz-animation: cssload-animate 0.58s linear infinite;
+  }
+  @keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+    25% {
+      transform: translateY(9px) rotate(22.5deg);
+    }
+    50% {
+      transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 39px;
+    }
+    75% {
+      transform: translateY(9px) rotate(67.5deg);
+    }
+    100% {
+      transform: translateY(0) rotate(90deg);
+    }
+  }
+  @-o-keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+    25% {
+      -o-transform: translateY(9px) rotate(22.5deg);
+    }
+    50% {
+      -o-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 39px;
+    }
+    75% {
+      -o-transform: translateY(9px) rotate(67.5deg);
+    }
+    100% {
+      -o-transform: translateY(0) rotate(90deg);
+    }
+  }
+  @-ms-keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+    25% {
+      -ms-transform: translateY(9px) rotate(22.5deg);
+    }
+    50% {
+      -ms-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 39px;
+    }
+    75% {
+      -ms-transform: translateY(9px) rotate(67.5deg);
+    }
+    100% {
+      -ms-transform: translateY(0) rotate(90deg);
+    }
+  }
+  @-webkit-keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+    25% {
+      -webkit-transform: translateY(9px) rotate(22.5deg);
+    }
+    50% {
+      -webkit-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 39px;
+    }
+    75% {
+      -webkit-transform: translateY(9px) rotate(67.5deg);
+    }
+    100% {
+      -webkit-transform: translateY(0) rotate(90deg);
+    }
+  }
+  @-moz-keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+    25% {
+      -moz-transform: translateY(9px) rotate(22.5deg);
+    }
+    50% {
+      -moz-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 39px;
+    }
+    75% {
+      -moz-transform: translateY(9px) rotate(67.5deg);
+    }
+    100% {
+      -moz-transform: translateY(0) rotate(90deg);
+    }
+  }
+  @keyframes shadow {
+    0%,
+    100% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.2, 1);
+    }
+  }
+  @-o-keyframes shadow {
+    0%,
+    100% {
+      -o-transform: scale(1, 1);
+    }
+    50% {
+      -o-transform: scale(1.2, 1);
+    }
+  }
+  @-ms-keyframes shadow {
+    0%,
+    100% {
+      -ms-transform: scale(1, 1);
+    }
+    50% {
+      -ms-transform: scale(1.2, 1);
+    }
+  }
+  @-webkit-keyframes shadow {
+    0%,
+    100% {
+      -webkit-transform: scale(1, 1);
+    }
+    50% {
+      -webkit-transform: scale(1.2, 1);
+    }
+  }
+  @-moz-keyframes shadow {
+    0%,
+    100% {
+      -moz-transform: scale(1, 1);
+    }
+    50% {
+      -moz-transform: scale(1.2, 1);
+    }
+  }
