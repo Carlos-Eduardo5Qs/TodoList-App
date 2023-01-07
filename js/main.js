@@ -1,4 +1,4 @@
-import from from './assets/css/style.css';
+import './../css/style.css';
 
 const display = document.querySelector('.input-fields input');
 const buttonAdd = document.querySelector('.buttonAdd');
